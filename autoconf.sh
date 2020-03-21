@@ -21,9 +21,9 @@ echo '\nupdating apt' ;
 
 sudo apt update ;
 
-sudo apt install unzip ;
+sudo apt install unzip &&
 
-unzip 
+unzip bag.zip ;
 
 # install
 echo '\n\n\nterminator install' ;
