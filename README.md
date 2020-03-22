@@ -2,7 +2,7 @@
 This sh will autoconfig the ubuntu
 
 RUN
-> sudo chmod +x ./autoconf.sh && sudo ./autoconf.sh > logs
+> sudo chmod +x ./autoconf.sh && sudo ./autoconf.sh
 
 ## App install list
 - terminator *

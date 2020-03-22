@@ -25,10 +25,6 @@ echo -e '\n________________________' ;
 
 apt update ;
 
-apt install unzip -y &&
-
-unzip bag.zip ;
-
 # install apps
 echo -e '\n\n\n________________________\n' ;
 echo 'terminator install' ;
