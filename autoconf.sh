@@ -95,7 +95,7 @@ apt install obs-studio -y ;
 
 printf '\n\n\nflash player install' ;
 
-apt install adobe-flashplugin browser-plugin-freshplayer-pepperflash ;
+apt install adobe-flashplugin browser-plugin-freshplayer-pepperflash -y ;
 
 printf '\n\n\nexpo-cli install' ;
 
