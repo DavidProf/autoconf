@@ -47,6 +47,10 @@ npm i -g n &&
 n stable &&
 npm i -g yarn@latest ;
 
+printf '\n\n\ndvlc media player install' ;
+
+snap install vlc
+
 printf '\n\n\ndocker install' ;
 
 apt install docker.io -y;

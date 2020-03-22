@@ -9,6 +9,7 @@ RUN
 - net-tools *
 - htop *
 - nodejs && npm && yarn *
+- vlc media player *
 - kazam *
 - audacity *
 - inkscape *
