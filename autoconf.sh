@@ -21,22 +21,22 @@ printf '\nupdating apt' ;
 
 apt update ;
 
-apt install unzip &&
+apt install unzip -y &&
 
 unzip bag.zip ;
 
 # install
 printf '\n\n\nterminator install' ;
 
-apt install terminator ;
+apt install terminator -y ;
 
 printf '\n\n\nnet-tools install' ;
 
-apt install net-tools ;
+apt install net-tools -y ;
 
 printf '\n\n\nhtop install' ;
 
-apt install htop ;
+apt install htop -y ;
 
 printf '\n\n\node && npm && yarn install' ;
 
@@ -49,7 +49,7 @@ npm i -g yarn@latest ;
 
 printf '\n\n\ndvlc media player install' ;
 
-snap install vlc
+snap install vlc ;
 
 printf '\n\n\ndocker install' ;
 
@@ -59,7 +59,7 @@ systemctl enable docker ;
 apt install docker-compose -y;
 
 groupadd docker ;
-usermode -aG docker $USER ;
+usermod -aG docker $USER ;
 
 printf '\n\n\nkazam install' ;
 
