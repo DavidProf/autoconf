@@ -10,6 +10,7 @@ RUN
 - htop *
 - nodejs && npm && yarn *
 - vlc media player *
+- rhythmbox *
 - kazam *
 - audacity *
 - inkscape *

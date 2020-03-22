@@ -45,9 +45,13 @@ npm i -g n &&
 n stable &&
 npm i -g yarn@latest ;
 
-printf '\n\n\ndvlc media player install\n' ;
+printf '\n\n\nvlc media player install\n' ;
 
 snap install vlc ;
+
+printf '\n\n\nrhythmbox install\n' ;
+
+apt install rhythmbox -y ;
 
 printf '\n\n\ndocker install\n' ;
 
@@ -164,13 +168,15 @@ gsettings set  org.gnome.desktop.interface cursor-theme 'vimix_cursors' ;
 printf '\n\n\ninstalling gnome shell exetensions\n' ;
 cp -r ./gnome-shell-extensions/* ~/.local/share/gnome-shell/extensions/ ;
 
+killall gnome-shell ;
+
 ## dash to dock
 printf '\n\n\nextension dash to dock\n' ;
 gnome-extensions enable dash-to-dock@micxgx.gmail.com ;
 dconf load /org/gnome/shell/extensions/dash-to-dock/ < ./gnome-shell-extensions-conf/dash-to-dock.backup ;
 
 ## sound-output-device-chooser
-printf '\n\n\nextension dash to dock\n' ;
+printf '\n\n\nextension sound-output-device-chooser\n' ;
 gnome-extensions enable sound-output-device-chooser@kgshank.net ;
 
 # git
