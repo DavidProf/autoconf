@@ -1,21 +1,27 @@
 #!/bin/bash
 
 # preparing
-printf '\nAdding apt repositories\n' ;
+echo -e '\n\n\n________________________\n' ;
+printf 'Adding apt repositories' ;
+echo -e '\n________________________' ;
 
 add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner" ;
 add-apt-repository -y ppa:webupd8team/haguichi ;
 add-apt-repository ppa:inkscape.dev/stable -y ;
 add-apt-repository ppa:lutris-team/lutris -y ;
 
-printf '\nconfig wine requirements\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'config wine requirements' ;
+echo -e '\n________________________' ;
 
 dpkg --add-architecture i386 ;
 wget -nc https://dl.winehq.org/wine-builds/winehq.key ;
 apt-key add winehq.key ;
-apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ eoan main\n' ;
+apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ eoan main' ;
 
-printf '\nupdating apt\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'updating apt' ;
+echo -e '\n________________________' ;
 
 apt update ;
 
@@ -23,20 +29,28 @@ apt install unzip -y &&
 
 unzip bag.zip ;
 
-# install
-printf '\n\n\nterminator install\n' ;
+# install apps
+echo -e '\n\n\n________________________\n' ;
+echo 'terminator install' ;
+echo -e '\n________________________' ;
 
 apt install terminator -y ;
 
-printf '\n\n\nnet-tools install\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'net-tools install' ;
+echo -e '\n________________________' ;
 
 apt install net-tools -y ;
 
-printf '\n\n\nhtop install\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'htop install' ;
+echo -e '\n________________________' ;
 
 apt install htop -y ;
 
-printf '\n\n\nnode && npm && yarn install\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'node && npm && yarn install' ;
+echo -e '\n________________________' ;
 
 apt install nodejs -y && 
 apt install npm -y &&
@@ -45,15 +59,21 @@ npm i -g n &&
 n stable &&
 npm i -g yarn@latest ;
 
-printf '\n\n\nvlc media player install\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'vlc media player install' ;
+echo -e '\n________________________' ;
 
 snap install vlc ;
 
-printf '\n\n\nrhythmbox install\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'rhythmbox install' ;
+echo -e '\n________________________' ;
 
 apt install rhythmbox -y ;
 
-printf '\n\n\ndocker install\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'docker install' ;
+echo -e '\n________________________' ;
 
 apt install docker.io -y;
 systemctl start docker ;
@@ -63,75 +83,111 @@ apt install docker-compose -y;
 groupadd docker ;
 usermod -aG docker $USER ;
 
-printf '\n\n\nkazam install\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'kazam install' ;
+echo -e '\n________________________' ;
 
 apt install kazam -y ;
 
-printf '\n\n\naudacity install\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'audacity install' ;
+echo -e '\n________________________' ;
 
 apt install audacity -y ;
 
-printf '\n\n\ninkscape install\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'inkscape install' ;
+echo -e '\n________________________' ;
 
 apt install inkscape -y ;
 
-printf '\n\n\ngimp install\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'gimp install' ;
+echo -e '\n________________________' ;
 
 apt install gimp -y ;
 
-printf '\n\n\nkdenlive install\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'kdenlive install' ;
+echo -e '\n________________________' ;
 
 apt install kdenlive -y ;
 
-printf '\n\n\nvirtualbox-qt install\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'virtualbox-qt install' ;
+echo -e '\n________________________' ;
 
 apt install virtualbox-qt -y ;
 
-printf '\n\n\nsteam-installer install\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'steam-installer install' ;
+echo -e '\n________________________' ;
 
 apt install steam-installer -y ;
 
-printf '\n\n\nbijiben install\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'bijiben install' ;
+echo -e '\n________________________' ;
 
 apt install bijiben -y ;
 
-printf '\n\n\nobs-studio install\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'obs-studio install' ;
+echo -e '\n________________________' ;
 
 apt install obs-studio -y ;
 
-printf '\n\n\nflash player install\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'flash player install' ;
+echo -e '\n________________________' ;
 
 apt install adobe-flashplugin browser-plugin-freshplayer-pepperflash -y ;
 
-printf '\n\n\nexpo-cli install\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'expo-cli install' ;
+echo -e '\n________________________' ;
 
 npm i -g expo-cli ;
 
-printf '\n\n\ncode install\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'code install' ;
+echo -e '\n________________________' ;
 
 apt install ./dev/code.deb -y ;
 
-printf '\n\n\nchrome install\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'chrome install' ;
+echo -e '\n________________________' ;
 
 apt install ./dev/chrome.deb -y ;
 
-printf '\n\n\nhamachi install\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'hamachi install' ;
+echo -e '\n________________________' ;
 
 apt install ./deb/hamachi -y && apt install haguichi -y ;
 
-printf '\n\n\nminecraft install\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'minecraft install' ;
+echo -e '\n________________________' ;
 
 apt install ./dev/minecraft.deb -y ;
 
-printf '\n\n\nwine install\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'wine install' ;
+echo -e '\n________________________' ;
 
 apt install -y --install-recommends winehq-stable ;
 
-printf '\n\n\nlutris install\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'lutris install' ;
+echo -e '\n________________________' ;
 
 apt install lutris -y;
 
-printf '\n\n\nclipgrab install\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'clipgrab install' ;
+echo -e '\n________________________' ;
 
 chmod +x ./clipgrab/clipgrab.AppImage ;
 cp -r ./clipgrab /opt/ ;
@@ -140,49 +196,79 @@ cp ./clipgrab/clipgrab.desktop ~/.local/share/applications/ ;
 
 # extra config
 
-printf '\n\n\nSetting favorites on taskbar'
-gsettings set org.gnome.shell favorite-apps "['google-chrome.desktop', 'firefox.desktop', 'chromium_chromium.desktop', 'org.gnome.Nautilus.desktop', 'rhythmbox.desktop', 'org.gnome.Software.desktop']"
+echo -e '\n\n\n________________________\n' ;
+echo 'Setting favorites on taskbar' ;
+echo -e '\n________________________' ;
 
-printf '\n\n\nEnable seconds on clock'
+gsettings set org.gnome.shell favorite-apps "['google-chrome.desktop', 'firefox.desktop', 'org.gnome.Nautilus.desktop', 'rhythmbox.desktop', 'org.gnome.Software.desktop']" ;
+
+echo -e '\n\n\n________________________\n' ;
+echo 'Enable seconds on clock' ;
+echo -e '\n________________________' ;
+
 gsettings set org.gnome.desktop.interface clock-show-seconds true
 # set gnome shell theme
 ## theme
-printf '\n\n\nSetting theme\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'Setting theme' ;
+echo -e '\n________________________' ;
+
 mkdir -p /usr/share/themes ;
 cp -r ./appearance/themes/bluesky_dark /usr/share/themes/ ;
 gsettings set org.gnome.desktop.interface gtk-theme 'bluesky_dark' ;
 gsettings set org.gnome.desktop.wm.preferences theme 'bluesky_dark' ;
 
 ## icons
-printf '\n\n\nSetting icons\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'Setting icons' ;
+echo -e '\n________________________' ;
+
 mkdir -p /usr/share/icons ;
 cp -r ./appearance/icons/blue_icons /usr/share/icons/ ;
 gsettings set org.gnome.desktop.interface icon-theme 'blue_icons' ;
 
 ## cursors
-printf '\n\n\nSetting cursors\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'Setting cursors' ;
+echo -e '\n________________________' ;
+
 cp -r ./appearance/cursors/vimix_cursors /usr/share/icons/ ;
 gsettings set  org.gnome.desktop.interface cursor-theme 'vimix_cursors' ;
 
 # add gnome shell plugins
-printf '\n\n\ninstalling gnome shell exetensions\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'installing gnome shell exetensions' ;
+echo -e '\n________________________' ;
+
 cp -r ./gnome-shell-extensions/* ~/.local/share/gnome-shell/extensions/ ;
 
 killall gnome-shell ;
 
 ## dash to dock
-printf '\n\n\nextension dash to dock\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'extension dash to dock' ;
+echo -e '\n________________________' ;
+
 gnome-extensions enable dash-to-dock@micxgx.gmail.com ;
 dconf load /org/gnome/shell/extensions/dash-to-dock/ < ./gnome-shell-extensions-conf/dash-to-dock.backup ;
 
 ## sound-output-device-chooser
-printf '\n\n\nextension sound-output-device-chooser\n' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'extension sound-output-device-chooser' ;
+echo -e '\n________________________' ;
+
 gnome-extensions enable sound-output-device-chooser@kgshank.net ;
 
 # git
-printf '\n\n\ngit config' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'git config' ;
+echo -e '\n________________________' ;
+
 ## git aliases
-printf '\n\n\nadding git aliases' ;
+echo -e '\n\n\n________________________\n' ;
+echo 'adding git aliases' ;
+echo -e '\n________________________' ;
+
 git config --global alias.s 'status -sb' ;
 git config --global alias.c 'commit' ;
 git config --global alias.amend 'commit --amend' ;
@@ -192,13 +278,19 @@ git config --global alias.l 'log --pretty="format:%Cgreen%ci %Cred%h %Cblue%an %
 git config --global alias.lg 'log --pretty="format:%Cgreen%cI %C(white)%cr%n -> %Cred%h%n -> %Cblue%an %C(green)[%C(magenta)%ae%C(green)]%n -> %C(white)%s%n    %b"' ;
 
 # install zsh
-printf '\n\n\ninstalling zsh'
-apt install zsh -y;
+echo -e '\n\n\n________________________\n' ;
+echo 'installing zsh' ;
+echo -e '\n________________________' ;
+
+apt install zsh -y ;
 chsh -s $(which zsh) ;
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" ;
 
 # change file and executing pulseaudio -k && alsa force-reload
-printf '\n\n\nnoise removing\n'
+echo -e '\n\n\n________________________\n' ;
+echo 'noise removing' ;
+echo -e '\n________________________' ;
+
 printf '### USER CHANGES' >> /etc/pulse/default.pa ;
 printf '# printf cancel' >> /etc/pulse/default.pa ;
 printf 'load-module module-printf-cancel' >> /etc/pulse/default.pa ;
