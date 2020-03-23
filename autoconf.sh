@@ -268,7 +268,7 @@ echo -e '\n________________________' ;
 
 #mkdir -p ~/.local/share/gnome-shell/extensions/ ;
 #cp -r ./gnome-shell-extensions/* ~/.local/share/gnome-shell/extensions/ ;
-cp -r ./gnome-shell-extensions/* /usr/share/gnome-shell/extensions;
+echo $USERPWD | sudo -S cp -r ./gnome-shell-extensions/* /usr/share/gnome-shell/extensions;
 
 killall gnome-shell ;
 
