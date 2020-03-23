@@ -42,5 +42,4 @@ RUN
 - change taskbar layout with dash to dock
 - add sound-output-device-chooser plugin
 - set git aliases
-- install zsh and add oh-my-zsh
 - microphone noise supress

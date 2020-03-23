@@ -295,15 +295,6 @@ git config --global alias.b 'branch' ;
 git config --global alias.l 'log --pretty="format:%Cgreen%ci %Cred%h %Cblue%an %C(green)[%C(magenta)%ae%C(green)] -> %C(white)%s"' ;
 git config --global alias.lg 'log --pretty="format:%Cgreen%cI %C(white)%cr%n -> %Cred%h%n -> %Cblue%an %C(green)[%C(magenta)%ae%C(green)]%n -> %C(white)%s%n    %b"' ;
 
-# install zsh
-echo -e '\n\n\n________________________\n' ;
-echo 'installing zsh' ;
-echo -e '\n________________________' ;
-
-echo $USERPWD | sudo -S apt install zsh -y ;
-chsh -s $(which zsh) ;
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" ;
-
 # change file and executing pulseaudio -k && alsa force-reload
 echo -e '\n\n\n________________________\n' ;
 echo 'noise removing' ;
