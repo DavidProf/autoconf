@@ -1,192 +1,203 @@
 #!/bin/bash
 
+# get password
+echo -e "Type your PASSWORD";
+read -s USERPWD
+
+if [ "$USERPWD" == "" ] ; then
+    echo "NO PASSWORD" ;
+    exit 1 ;
+fi
+
 # preparing
 echo -e '\n\n\n________________________\n' ;
 printf 'Adding apt repositories' ;
 echo -e '\n________________________' ;
 
-add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner" ;
-add-apt-repository -y ppa:webupd8team/haguichi ;
-add-apt-repository ppa:inkscape.dev/stable -y ;
-add-apt-repository ppa:lutris-team/lutris -y ;
+echo $USERPWD | sudo -S add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner" ;
+echo $USERPWD | sudo -S add-apt-repository -y ppa:webupd8team/haguichi ;
+echo $USERPWD | sudo -S add-apt-repository ppa:inkscape.dev/stable -y ;
+echo $USERPWD | sudo -S add-apt-repository ppa:lutris-team/lutris -y ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'config wine requirements' ;
 echo -e '\n________________________' ;
 
-dpkg --add-architecture i386 ;
+echo $USERPWD | sudo -S dpkg --add-architecture i386 ;
 wget -nc https://dl.winehq.org/wine-builds/winehq.key ;
-apt-key add winehq.key ;
-apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ eoan main' ;
+echo $USERPWD | sudo -S apt-key add winehq.key ;
+echo $USERPWD | sudo -S apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ eoan main' ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'updating apt' ;
 echo -e '\n________________________' ;
 
-apt update ;
+echo $USERPWD | sudo -S apt update -y ;
+
+echo $USERPWD | sudo -S chmod +x -R ./deb ;
 
 # install apps
 echo -e '\n\n\n________________________\n' ;
 echo 'terminator install' ;
 echo -e '\n________________________' ;
 
-apt install terminator -y ;
+echo $USERPWD | sudo -S apt install terminator -y ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'net-tools install' ;
 echo -e '\n________________________' ;
 
-apt install net-tools -y ;
+echo $USERPWD | sudo -S apt install net-tools -y ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'htop install' ;
 echo -e '\n________________________' ;
 
-apt install htop -y ;
+echo $USERPWD | sudo -S apt install htop -y ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'node && npm && yarn install' ;
 echo -e '\n________________________' ;
 
-apt install nodejs -y && 
-apt install npm -y &&
-npm i -g npm@latest &&
-npm i -g n &&
-n stable &&
-npm i -g yarn@latest ;
+echo $USERPWD | sudo -S apt install nodejs -y && 
+echo $USERPWD | sudo -S apt install npm -y &&
+echo $USERPWD | sudo -S npm i -g npm@latest &&
+echo $USERPWD | sudo -S npm i -g n &&
+echo $USERPWD | sudo -S n stable &&
+echo $USERPWD | sudo -S npm i -g yarn@latest ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'vlc media player install' ;
 echo -e '\n________________________' ;
 
-snap install vlc ;
+echo $USERPWD | sudo -S snap install vlc ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'rhythmbox install' ;
 echo -e '\n________________________' ;
 
-apt install rhythmbox -y ;
+echo $USERPWD | sudo -S apt install rhythmbox -y ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'docker install' ;
 echo -e '\n________________________' ;
 
-apt install docker.io -y;
+echo $USERPWD | sudo -S apt install docker.io -y;
 systemctl start docker ;
 systemctl enable docker ;
-apt install docker-compose -y;
+echo $USERPWD | sudo -S apt install docker-compose -y;
 
-groupadd docker ;
-usermod -aG docker $USER ;
+echo $USERPWD | sudo -S groupadd docker ;
+echo $USERPWD | sudo -S usermod -aG docker $USER ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'kazam install' ;
 echo -e '\n________________________' ;
 
-apt install kazam -y ;
+echo $USERPWD | sudo -S apt install kazam -y ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'audacity install' ;
 echo -e '\n________________________' ;
 
-apt install audacity -y ;
+echo $USERPWD | sudo -S apt install audacity -y ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'inkscape install' ;
 echo -e '\n________________________' ;
 
-apt install inkscape -y ;
+echo $USERPWD | sudo -S apt install inkscape -y ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'gimp install' ;
 echo -e '\n________________________' ;
 
-apt install gimp -y ;
+echo $USERPWD | sudo -S apt install gimp -y ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'kdenlive install' ;
 echo -e '\n________________________' ;
 
-apt install kdenlive -y ;
+echo $USERPWD | sudo -S apt install kdenlive -y ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'virtualbox-qt install' ;
 echo -e '\n________________________' ;
 
-apt install virtualbox-qt -y ;
+echo $USERPWD | sudo -S apt install virtualbox-qt -y ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'steam-installer install' ;
 echo -e '\n________________________' ;
 
-apt install steam-installer -y ;
+echo $USERPWD | sudo -S apt install steam-installer -y ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'bijiben install' ;
 echo -e '\n________________________' ;
 
-apt install bijiben -y ;
+echo $USERPWD | sudo -S apt install bijiben -y ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'obs-studio install' ;
 echo -e '\n________________________' ;
 
-apt install obs-studio -y ;
+echo $USERPWD | sudo -S apt install obs-studio -y ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'flash player install' ;
 echo -e '\n________________________' ;
 
-apt install adobe-flashplugin browser-plugin-freshplayer-pepperflash -y ;
+echo $USERPWD | sudo -S apt install adobe-flashplugin browser-plugin-freshplayer-pepperflash -y ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'expo-cli install' ;
 echo -e '\n________________________' ;
 
-npm i -g expo-cli ;
+echo $USERPWD | sudo -S npm i -g expo-cli ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'code install' ;
 echo -e '\n________________________' ;
 
-apt install ./dev/code.deb -y ;
+echo $USERPWD | sudo -S apt install ./dev/code.deb -y ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'chrome install' ;
 echo -e '\n________________________' ;
 
-apt install ./dev/chrome.deb -y ;
+echo $USERPWD | sudo -S apt install ./dev/chrome.deb -y ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'hamachi install' ;
 echo -e '\n________________________' ;
 
-apt install ./deb/hamachi -y && apt install haguichi -y ;
+echo $USERPWD | sudo -S apt install ./deb/hamachi -y && echo $USERPWD | sudo -S apt install haguichi -y ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'minecraft install' ;
 echo -e '\n________________________' ;
 
-apt install ./dev/minecraft.deb -y ;
+echo $USERPWD | sudo -S apt install ./dev/minecraft.deb -y ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'wine install' ;
 echo -e '\n________________________' ;
 
-apt install -y --install-recommends winehq-stable ;
+echo $USERPWD | sudo -S apt install -y --install-recommends winehq-stable ;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'lutris install' ;
 echo -e '\n________________________' ;
 
-apt install lutris -y;
+echo $USERPWD | sudo -S apt install lutris -y;
 
 echo -e '\n\n\n________________________\n' ;
 echo 'clipgrab install' ;
 echo -e '\n________________________' ;
 
-chmod +x ./clipgrab/clipgrab.AppImage ;
-cp -r ./clipgrab /opt/ ;
+echo $USERPWD | sudo -S chmod +x ./clipgrab/clipgrab.AppImage ;
+echo $USERPWD | sudo -S cp -r ./clipgrab /opt/ ;
 
 cp ./clipgrab/clipgrab.desktop ~/.local/share/applications/ ;
 
@@ -209,8 +220,11 @@ echo -e '\n\n\n________________________\n' ;
 echo 'Setting theme' ;
 echo -e '\n________________________' ;
 
-mkdir -p /usr/share/themes ;
-cp -r ./appearance/themes/bluesky_dark /usr/share/themes/ ;
+echo $USERPWD | sudo -S mkdir -p /usr/share/themes ;
+echo $USERPWD | sudo -S cp -r ./appearance/themes/bluesky_dark /usr/share/themes/ ;
+
+killall gnome-shell ;
+
 gsettings set org.gnome.desktop.interface gtk-theme 'bluesky_dark' ;
 gsettings set org.gnome.desktop.wm.preferences theme 'bluesky_dark' ;
 
@@ -219,8 +233,11 @@ echo -e '\n\n\n________________________\n' ;
 echo 'Setting icons' ;
 echo -e '\n________________________' ;
 
-mkdir -p /usr/share/icons ;
-cp -r ./appearance/icons/blue_icons /usr/share/icons/ ;
+echo $USERPWD | sudo -S mkdir -p /usr/share/icons ;
+echo $USERPWD | sudo -S cp -r ./appearance/icons/blue_icons /usr/share/icons/ ;
+
+killall gnome-shell ;
+
 gsettings set org.gnome.desktop.interface icon-theme 'blue_icons' ;
 
 ## cursors
@@ -228,7 +245,10 @@ echo -e '\n\n\n________________________\n' ;
 echo 'Setting cursors' ;
 echo -e '\n________________________' ;
 
-cp -r ./appearance/cursors/vimix_cursors /usr/share/icons/ ;
+echo $USERPWD | sudo -S cp -r ./appearance/cursors/vimix_cursors /usr/share/icons/ ;
+
+killall gnome-shell ;
+
 gsettings set  org.gnome.desktop.interface cursor-theme 'vimix_cursors' ;
 
 # add gnome shell plugins
@@ -260,6 +280,8 @@ echo -e '\n\n\n________________________\n' ;
 echo 'git config' ;
 echo -e '\n________________________' ;
 
+echo $USERPWD | sudo -S apt install git ;
+
 ## git aliases
 echo -e '\n\n\n________________________\n' ;
 echo 'adding git aliases' ;
@@ -278,7 +300,7 @@ echo -e '\n\n\n________________________\n' ;
 echo 'installing zsh' ;
 echo -e '\n________________________' ;
 
-apt install zsh -y ;
+echo $USERPWD | sudo -S apt install zsh -y ;
 chsh -s $(which zsh) ;
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" ;
 
