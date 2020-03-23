@@ -29,6 +29,16 @@ echo $USERPWD | sudo -S apt-key add winehq.key ;
 echo $USERPWD | sudo -S apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ eoan main' ;
 
 echo -e '\n\n\n________________________\n' ;
+echo 'downloading debs' ;
+echo -e '\n________________________' ;
+
+mkdir ./deb
+wget -O ./deb/minecraf.deb https://launcher.mojang.com/download/Minecraft.deb ;
+wget -O ./deb/hamachi.deb https://www.vpn.net/installers/logmein-hamachi_2.1.0.203-1_amd64.deb ;
+wget -O ./deb/code.deb 'https://az764295.vo.msecnd.net/stable/26076a4de974ead31f97692a0d32f90d735645c0/code_1.41.1-1576681836_amd64.deb' ;
+
+
+echo -e '\n\n\n________________________\n' ;
 echo 'updating apt' ;
 echo -e '\n________________________' ;
 
@@ -256,7 +266,9 @@ echo -e '\n\n\n________________________\n' ;
 echo 'installing gnome shell exetensions' ;
 echo -e '\n________________________' ;
 
-cp -r ./gnome-shell-extensions/* ~/.local/share/gnome-shell/extensions/ ;
+#mkdir -p ~/.local/share/gnome-shell/extensions/ ;
+#cp -r ./gnome-shell-extensions/* ~/.local/share/gnome-shell/extensions/ ;
+cp -r ./gnome-shell-extensions/* /usr/share/gnome-shell/extensions;
 
 killall gnome-shell ;
 
