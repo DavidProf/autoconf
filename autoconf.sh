@@ -311,10 +311,10 @@ echo -e '\n\n\n________________________\n' ;
 echo 'noise removing' ;
 echo -e '\n________________________' ;
 
-printf '### USER CHANGES' >> /etc/pulse/default.pa ;
-printf '# printf cancel' >> /etc/pulse/default.pa ;
-printf 'load-module module-printf-cancel' >> /etc/pulse/default.pa ;
-pulseaudio -k && alsa force-reload ;
+echo -e '\n### USER CHANGES' | sudo tee -a /etc/pulse/default.pa ;
+echo '# printf cancel' | sudo tee -a /etc/pulse/default.pa ;
+echo 'load-module module-printf-cancel' | sudo tee -a /etc/pulse/default.pa ;
+pulseaudio -k && echo $USERPWD | sudo -S alsa force-reload ;
 
 printf '\n\nrun "pulseaudio -k && alsa force-reload" to enable noise supress\n' ;
 
